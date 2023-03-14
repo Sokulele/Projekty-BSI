@@ -1,0 +1,18 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Roboto", "sans-serif";
+	background-color: rgb(93, 91, 91);
+	color: #fff;
+}
+.name {
+	font-size: 40px;
+	color: gold;
+	text-align: center;
+	font-weight: bold;
+	text-shadow: rgb(103, 97, 26) 12px 0px 5px;
+}
