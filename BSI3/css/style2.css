@@ -1,0 +1,49 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body,
+html {
+	font-family: "Montserrat", "Roboto", "Nunito", "sans-serif";
+	background-color: rgb(93, 91, 91);
+	color: #000000;
+}
+
+div {
+	margin: 5px;
+	padding: 5px;
+}
+
+.art {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+div > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	max-width: 500px;
+	min-width: 400px;
+	width: 30%;
+}
+img {
+	border-radius: 10%;
+	border: solid rgb(63, 16, 16);
+	border-width: 5px;
+}
+div > img {
+	width: 400px;
+}
+div > p {
+	padding: 5px;
+	margin: 5px;
+	text-align: center;
+	font-size: 25px;
+}
+a {
+	text-decoration: none;
+}

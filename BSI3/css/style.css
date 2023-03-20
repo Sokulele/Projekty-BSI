@@ -1,0 +1,34 @@
+body {
+	font-family: "Roboto", "sans-serif";
+	background-color: #90baad;
+	font-size: 40px;
+	color: #800a0a;
+}
+div {
+	text-align: center;
+}
+a {
+	font-weight: bold;
+	font-style: italic;
+	text-decoration: none;
+}
+.lista{
+	display: flex;
+	justify-content: center;
+	font-size: 45px;
+}
+a:link {
+	color: #0b3954;
+}
+
+a:visited {
+	color: #355834;
+}
+
+a:hover {
+	color: #6f73d2;
+}
+
+a:active {
+	color: #313638;
+}

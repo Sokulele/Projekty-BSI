@@ -1,0 +1,43 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body,
+html {
+	font-family: "Montserrat", "Roboto", "Nunito", "sans-serif";
+	background-color: rgb(93, 91, 91);
+	font-size: 20px;
+	color: #000000;
+}
+
+div {
+	margin: 5px;
+	padding: 5px;
+	position: relative;
+	display: flex;
+}
+.outsideDiv {
+	border: 5px solid #02182b;
+	border-style: double;
+	background-color: #448fa3;
+	flex-direction: column;
+	height: auto;
+	width: auto;
+}
+
+.row2 {
+	width: 50%;
+}
+
+.row3 {
+	width: 50%;
+}
+
+.columnDiv {
+	width: 25%;
+}
+
+.row4 {
+	width: 20%;
+}
