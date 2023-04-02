@@ -154,8 +154,7 @@ function HouseNumbCheck() {
 function StreetCheck() {
 	let streetValue = street.value.toLowerCase();
 	// console.log(streetValue);
-	let regEx =
-		/^([0-9]?[. -]?[a-zęóąśłżźćń]{1,}[. -]?[0-9]{0,}[. -]?[a-zęóąśłżźćń]{0,}[. -]?[0-9]{0,}[. -]?)+$/;
+	let regEx = /^([0-9]?[. -]?[a-zęóąśłżźćń]{1,}[. -]?[0-9]{0,})+$/;
 	console.log(regEx.test(streetValue));
 
 	if (!regEx.test(streetValue)) {
