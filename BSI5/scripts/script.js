@@ -76,7 +76,7 @@ function DateChecker() {
 		age--;
 	}
 
-	if (yearValue <= 1900) {
+	if (yearValue <= 1900 || yearValue > currYear) {
 		dateError.innerHTML = "Błędna data urodzenia!";
 		dateValid = false;
 	} else if (age < 18) {
