@@ -10,28 +10,18 @@ const postCode = document.querySelector("#PostCode");
 const date = document.querySelector("#Date");
 const form = document.getElementById("Form");
 
-form.addEventListener("submit", (sub) => ValidateForm(sub));
-
-function ValidateForm(sub) {
-	if (
-		nameValid &&
-		surnValid &&
-		peselValid &&
-		phoneValid &&
-		streetValid &&
-		housNmbValid &&
-		flatNmbValid &&
-		dateValid &&
-		flatNmbValid
-	) {
-		return;
-	} else {
-		sub.preventDefault();
-	}
-}
-
 // variables
-var nameValid,
+// var nameValid,
+// 	surnValid,
+// 	peselValid,
+// 	phoneValid,
+// 	streetValid,
+// 	housNmbValid,
+// 	flatNmbValid,
+// 	cityValid,
+// 	dateValid = true;
+var [
+	nameValid,
 	surnValid,
 	peselValid,
 	phoneValid,
@@ -39,8 +29,10 @@ var nameValid,
 	housNmbValid,
 	flatNmbValid,
 	cityValid,
-	dateValid = true;
-
+	dateValid,
+	flatNmbValid,
+] = Array(10).fill(true);
+// var flatNmbValid = true;
 //
 //
 
@@ -54,6 +46,34 @@ flatNumb.addEventListener("input", () => FlatNumbCheck());
 city.addEventListener("input", () => CityChecker());
 postCode.addEventListener("input", () => PostChodeChecker());
 date.addEventListener("input", () => DateChecker());
+
+form.addEventListener("submit", (sub) => ValidateForm(sub));
+
+function ValidateForm(sub) {
+	if (
+		nameValid &&
+		surnValid &&
+		peselValid &&
+		phoneValid &&
+		streetValid &&
+		housNmbValid &&
+		dateValid
+	) {
+		// alert("1if");
+		// alert(flatNmbValid);
+
+		if (flatNmbValid) {
+			// alert("2if");
+			return;
+		} else {
+			// alert("revent1");
+			sub.preventDefault();
+		}
+	} else {
+		// alert("revent2");
+		sub.preventDefault();
+	}
+}
 
 function DateChecker() {
 	let dateValue = date.value;
@@ -106,10 +126,10 @@ function PostChodeChecker() {
 
 function CityChecker() {
 	let cityValue = city.value.toLowerCase();
-	console.log(cityValue);
+	// console.log(cityValue);
 	let regEx =
 		/^([a-zęóąśłżźćń]{2,}$)|([a-zęóąśłżźćń]{1,}[ ]?[- ']{1}[ ]?[a-zęóąśłżźćń]{2,}$)/;
-	console.log(regEx.test(cityValue));
+	// console.log(regEx.test(cityValue));
 
 	if (!regEx.test(cityValue)) {
 		city.classList.add("error");
@@ -123,23 +143,27 @@ function CityChecker() {
 function FlatNumbCheck() {
 	let flatNumbValue = flatNumb.value.toLowerCase();
 	console.log(flatNumbValue);
-	let regEx = /(^[0-9]{1,}[a-z]?$)|(^[a-z]{1,}[0-9]?$)/;
-	console.log(regEx.test(flatNumbValue));
+	let regEx = /(^[0-9]{1,4}[a-z]?$)|(^[a-z]{1,2}[0-9]?$)/;
+	// console.log(regEx.test(flatNumbValue));
+	// console.log(flatNumbValue === "");
 
-	if (!regEx.test(flatNumbValue)) {
+	if (flatNumbValue === "") {
+		flatNumb.classList.remove("error");
+		flatNmbValid = true;
+	} else if (!regEx.test(flatNumbValue)) {
 		flatNumb.classList.add("error");
 		flatNmbValid = false;
-		// console.log(flatNmbValid);
 	} else {
 		flatNumb.classList.remove("error");
 		flatNmbValid = true;
 	}
+	// console.log(flatNmbValid);
 }
 function HouseNumbCheck() {
 	let houseNumbValue = houseNumb.value.toLowerCase();
-	console.log(houseNumbValue);
-	let regEx = /(^[0-9]{1,}[a-z]?$)|(^[a-z]{1,}[0-9]?$)/;
-	console.log(regEx.test(houseNumbValue));
+	// console.log(houseNumbValue);
+	let regEx = /(^[0-9]{1,4}[a-z]?$)|(^[a-z]{1,2}[0-9]?$)/;
+	// console.log(regEx.test(houseNumbValue));
 
 	if (!regEx.test(houseNumbValue)) {
 		houseNumb.classList.add("error");
@@ -197,7 +221,7 @@ function SurnameCheck() {
 	// console.log(surnameValue);
 	let regEx =
 		/(^[a-zęóąśłżźćń]{2,}$)|([a-zęóąśłżźćń]{1,}[-']{1}[a-zęóąśłżźćń]{2,}$)/;
-	console.log(regEx.test(surnameValue));
+	// console.log(regEx.test(surnameValue));
 
 	if (!regEx.test(surnameValue)) {
 		surname.classList.add("error");
